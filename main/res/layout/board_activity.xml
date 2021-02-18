@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@color/darkGrey"
+	android:stretchColumns="0,2">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:layout_weight="1"
+		android:orientation="horizontal">
+
+		<TextView
+			android:id="@+id/MineCount"
+			android:layout_width="80dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:background="@color/black"
+			android:gravity="center_horizontal"
+			android:padding="5dp"
+			android:text="000"
+			android:textColor="@color/red"
+			android:textSize="30sp" />
+
+		<Button
+			android:id="@+id/NewGame"
+			android:layout_width="100dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:padding="5dp"
+			android:scaleType="center"
+			android:text="@string/new_game"
+			android:textColor="@color/black"
+			android:textSize="30sp"
+			android:background="@color/lightGrey"/>
+
+		<TextView
+			android:id="@+id/Time"
+			android:layout_width="80dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:background="@color/black"
+			android:gravity="center_horizontal"
+			android:padding="5dp"
+			android:text="000"
+			android:textColor="@color/red"
+			android:textSize="30sp" />
+
+	</LinearLayout>
+
+	<TableRow android:layout_weight="10">
+		<TableLayout
+			android:id="@+id/MineField"
+			android:layout_width="match_parent"
+			android:layout_height="721dp"
+			android:layout_span="3"
+			android:background="@color/darkGrey"
+			android:padding="5dp"
+			android:stretchColumns="*" />
+	</TableRow>
+
+</TableLayout>

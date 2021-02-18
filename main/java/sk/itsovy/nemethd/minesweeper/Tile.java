@@ -2,7 +2,9 @@ package sk.itsovy.nemethd.minesweeper;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.view.Gravity;
 
 public class Tile extends androidx.appcompat.widget.AppCompatButton {
 
@@ -25,6 +27,8 @@ public class Tile extends androidx.appcompat.widget.AppCompatButton {
 		isMine = false;
 		surroundingMines = 0;
 		this.setBackgroundResource(R.drawable.tile_covered);
+		this.setGravity(Gravity.CENTER);
+		this.setTypeface(Typeface.DEFAULT_BOLD);
 	}
 
 	public void setNumberOfSurroundingMines(int number) {
@@ -41,6 +45,7 @@ public class Tile extends androidx.appcompat.widget.AppCompatButton {
 	}
 
 	public void setFlag(boolean enabled) {
+		this.setTextColor(Color.BLACK);
 		this.setText("P");
 		this.setBackgroundResource(R.drawable.tile_covered);
 	}
@@ -50,7 +55,7 @@ public class Tile extends androidx.appcompat.widget.AppCompatButton {
 		else this.setBackgroundResource(R.drawable.tile_covered);
 	}
 
-	public void clearAllIcons() { this.setText(""); }
+	public void clearFlag() { this.setText(""); }
 
 	public void uncoverTile() {
 		if (!isHidden) return;
@@ -88,9 +93,6 @@ public class Tile extends androidx.appcompat.widget.AppCompatButton {
 				case 8:
 					this.setTextColor(Color.rgb(70, 70, 70));
 					break;
-				case 9: 
-					this.setTextColor(Color.rgb(205, 205, 0));
-					break;
 			}
 		}
 	}
@@ -100,21 +102,17 @@ public class Tile extends androidx.appcompat.widget.AppCompatButton {
 		this.setTextColor(Color.RED);
 	}
 
-	public void setMine() { isMine = true; }
-
 	public boolean isHidden() { return isHidden; }
 
+	public void setMine() { isMine = true; }
 	public boolean hasMine() { return isMine; }
 
 	public void setSurroundingMines(int number) { surroundingMines = number; }
-
 	public int getNumberOfSurroundingMines() { return surroundingMines; }
 
 	public boolean isFlagged() { return isFlagged; }
-
 	public void setFlagged(boolean flagged) { isFlagged = flagged; }
 
 	public boolean isEnabled() { return isEnabled; }
-
 	public void setEnabled(boolean enabled) { isEnabled = enabled; }
 }
